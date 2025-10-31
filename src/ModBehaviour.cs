@@ -15,7 +15,7 @@ namespace QuestItemRequirementsDisplay
     public class ModBehaviour : Duckov.Modding.ModBehaviour
     {
         public readonly string ModName = "QuestItemRequirementsDisplay";
-        public readonly string Version = "0.5";
+        public readonly string Version = "0.6";
 
         private Harmony harmony;
 

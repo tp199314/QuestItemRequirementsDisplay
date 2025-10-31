@@ -19,10 +19,13 @@ Supports Simplified Chinese, Traditional Chinese, English, Korean, and Japanese.
 
 
 ## To do / 待更新事项
-现在有一些在游戏中没有开启, 但是在数据中已经存在的任务和天赋, 目前在想办法把这些都去除, 哪位老哥知道什么好方法可以告诉我一下!  
+目前去除了一些任务(需求等级999级), 天赋(种田, 蓝图相关), 建筑(PetHouse相关)  
+虽然已经去除了很多, 但是还是有一些任务不知道具体触发条件是什么, 到底是实装了还是没实装的(  
+哪位老哥知道什么好方法可以告诉我一下!  
 
-There are currently some quests and perks that are not enabled in the game but still exist in the data.
-I' m trying to find a way to remove them all. If anyone knows a good method, please let me know!  
+Some quests (with a level requirement of 999), perks (related to farming and blueprints), and buildings (PetHouse-related) have already been removed.  
+Although many have been excluded, there are still some quests for which I don't know the exact trigger conditions, or whether they are actually implemented or not.  
+If anyone knows a good way to find this out, please let me know!  
 
 
 ## Bug
@@ -36,12 +39,14 @@ If anyone knows how to fix this, please let me know!
 
 
 ## Release Note / 更新日志
+v0.6 - 去除了部分未解锁的任务, 天赋, 建筑的显示
 v0.5 - 更改了默认显示需求道具总数, 并且再按下Shift键时显示具体任务名和数量的功能
 v0.4 - 现在未完成的建筑需要的道具数量也可以显示了!  
 v0.3 - 现在未解锁的天赋需要的道具数量也可以显示了!  
 v0.2 - 修复了道具名中有数字时不能正常显示道具数量的bug  
 v0.1 - 发布  
 
+v0.6 - Removed the display of some unimplemented quests, perks and buildings.
 v0.5 - Changed the default display to show the total required item count, and added a feature to show detailed quest names and quantities when holding the Shift key.
 v0.4 - The required item quantities for unbuilt buildings can now be displayed!  
 v0.3 - The required item quantities for perks can now be displayed!  
@@ -50,4 +55,4 @@ v0.1 - Initial release.
 
 
 [Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=3591517959)  
-v0.5 by ballban
+v0.6 by ballban
