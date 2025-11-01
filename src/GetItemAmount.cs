@@ -10,30 +10,53 @@ namespace QuestItemRequirementsDisplay
     {
         static void Prefix(PlayerStorage __instance)
         {
-            GetItemAmount.ClonePlayerStorageInventory();
+            GetItemAmount.CachedPlayerStorageItemsCount();
         }
     }
 
     public class GetItemAmount
     {
-        // Cached copy of the player's storage inventory
-        public static List<Item> PlayerStorageInventoryItems = new List<Item>();
+        // Cached player storage inventory items count when player is outside of safe-house
+        private static readonly Dictionary<int, int> PlayerStorageItemsCount = new Dictionary<int, int>();
 
         /// <summary>
-        /// Clone the player's storage inventory to avoid null reference issues
+        /// Cached player storage inventory items count when player is outside of safe-house
         /// </summary>
-        public static void ClonePlayerStorageInventory()
+        public static void CachedPlayerStorageItemsCount()
         {
-            if (PlayerStorage.Inventory == null || PlayerStorage.Inventory.Content == null) return;
-            PlayerStorageInventoryItems.Clear();
-            PlayerStorageInventoryItems.AddRange(PlayerStorage.Inventory.Content.FindAll(item => item != null));
-            PlayerStorageInventoryItems.AddRange(PlayerStorage.Inventory.Content
-                .FindAll(item => item != null && item.Slots != null && item.Slots.list != null)
-                .SelectMany(item => item.Slots.list
-                    .Where(slot => slot != null && slot.Content != null)
-                    .Select(slot => slot.Content)
-                )
-            );
+            PlayerStorageItemsCount.Clear();
+            var stack = new Stack<Item>();
+
+            var storage = PlayerStorage.Inventory;
+            if (storage?.Content == null)
+                return;
+
+            foreach (var item in storage.Content)
+            {
+                if (item != null)
+                    stack.Push(item);
+            }
+
+            while (stack.Count > 0)
+            {
+                var current = stack.Pop();
+                if (current == null)
+                    continue;
+
+                if (PlayerStorageItemsCount.TryGetValue(current.TypeID, out int existing))
+                    PlayerStorageItemsCount[current.TypeID] = existing + current.StackCount;
+                else
+                    PlayerStorageItemsCount[current.TypeID] = current.StackCount;
+
+                var slots = current.Slots;
+                if (slots == null)
+                    continue;
+                foreach (var slot in slots)
+                {
+                    if (slot?.Content != null)
+                        stack.Push(slot.Content);
+                }
+            }
         }
 
         /// <summary>
@@ -83,7 +106,7 @@ namespace QuestItemRequirementsDisplay
             var amount = 0;
             if (PlayerStorage.Inventory == null)
             {
-                amount += FromInventory(PlayerStorageInventoryItems, typeID);
+                amount += PlayerStorageItemsCount.TryGetValue(typeID, out int cachedAmount) ? cachedAmount : 0;
             }
             else
             {
@@ -102,29 +125,52 @@ namespace QuestItemRequirementsDisplay
         {
             if (inventory == null) return 0;
 
-            return FromInventory(inventory.FindAll(item => item != null), typeID);
+            return GetTotalAmountInInventory(inventory.FindAll(item => item != null), typeID);
         }
         private static int FromInventory(List<Item> inventory, int typeID)
         {
-            var items = inventory.FindAll(item => item.TypeID == typeID);
-            var amount = items.Sum(item => item.StackCount);
-            amount += FromItemsSlots(inventory, typeID);
-            return amount;
+            return GetTotalAmountInInventory(inventory, typeID);
         }
 
         /// <summary>
-        /// Get the total amount of the specified item type ID in the given inventory's item slots.
+        /// Get the total amount of the specified item type ID in the given inventory (Include all nested slots).
         /// </summary>
         /// <param name="inventory"></param>
         /// <param name="typeID"></param>
         /// <returns></returns>
-        private static int FromItemsSlots(List<Item> inventory, int typeID)
+        private static int GetTotalAmountInInventory(List<Item> inventory, int typeID)
         {
-            var amount = inventory
-                .Where(item => item.Slots != null && item.Slots.list != null)
-                .SelectMany(item => item.Slots.list.FindAll(slot => slot != null && slot.Content != null))
-                .Where(slot => slot.Content.TypeID == typeID)
-                .Sum(slot => slot.Content.StackCount);
+            if (inventory == null)
+                return 0;
+
+            int amount = 0;
+            var itemStack = new Stack<Item>();
+
+            foreach (var item in inventory)
+            {
+                if (item != null)
+                    itemStack.Push(item);
+            }
+
+            while (itemStack.Count > 0)
+            {
+                var item = itemStack.Pop();
+                if (item == null)
+                    continue;
+
+                if (item.TypeID == typeID)
+                    amount += item.StackCount;
+
+                var slots = item.Slots;
+                if (slots == null)
+                    continue;
+
+                foreach (var slot in slots)
+                {
+                    if (slot?.Content != null)
+                        itemStack.Push(slot.Content);
+                }
+            }
             return amount;
         }
     }
