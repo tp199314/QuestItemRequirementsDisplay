@@ -67,6 +67,7 @@ namespace QuestItemRequirementsDisplay
         public static int GetTotalItemAmount(int typeID)
         {
             var totalAmount = InCharacterInventory(typeID)
+                            + InCharacterEquipment(typeID)
                             + InPetInventory(typeID)
                             + InPlayerStorage(typeID);
             return totalAmount;
@@ -82,6 +83,25 @@ namespace QuestItemRequirementsDisplay
             var inventory = LevelManager.Instance.MainCharacter.CharacterItem.Inventory;
             var amount = FromInventory(inventory, typeID);
             return amount;
+        }
+
+        /// <summary>
+        /// Get the total amount of the specified item type ID in the character's equipment.
+        /// </summary>
+        /// <param name="typeID"></param>
+        /// <returns></returns>
+        public static int InCharacterEquipment(int typeID)
+        {
+            var characterEquipments = LevelManager.Instance.MainCharacter.CharacterItem.Slots;
+            var inventory = new List<Item>();
+            foreach (var slot in characterEquipments)
+            {
+                if (slot?.Content != null)
+                {
+                    inventory.Add(slot.Content);
+                }
+            }
+            return FromInventory(inventory, typeID);
         }
 
         /// <summary>
