@@ -1,3 +1,6 @@
+# 旅游去了! 11月17号回家!!
+# I'm traveling right now!! I'll be home at 17th Nov!!
+
 ## 使用说明 / How to use
 Steam玩家直接进入[Steam创意工坊](https://steamcommunity.com/sharedfiles/filedetails/?id=3591517959)订阅即可  
 不知道为什么每次更新都要卡一次审核, 可以进入[备份用创意工坊](https://steamcommunity.com/sharedfiles/filedetails/?id=3595582953)订阅  
