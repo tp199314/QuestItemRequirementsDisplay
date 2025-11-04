@@ -21,7 +21,7 @@ namespace QuestItemRequirementsDisplay
             { "GetRequiredSubmittingQuestText_ChineseSimplified", "需要提交该物品的任务:" },
             { "GetRequiredSubmittingQuestText_ChineseTraditional", "需要提交該物品的任務:" },
             { "GetRequiredSubmittingQuestText_Japanese", "このアイテム納品が必要なクエスト:" },
-            { "GetRequiredSubmittingQuestText_Korean", "이아이템 재출이 필요한 퀘스트:" },
+            { "GetRequiredSubmittingQuestText_Korean", "이아이템 제출이 필요한 퀘스트:" },
             { "GetRequiredSubmittingQuestText_Russian", "Квесты на сдачу предмета:" },
             { "GetRequiredSubmittingQuestText_Default", "Quests required submit this item:" },
 
