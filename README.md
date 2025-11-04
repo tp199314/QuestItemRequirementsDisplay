@@ -14,11 +14,11 @@ Non-Steam players can place the "QuestItemRequirementsDisplay" folder directly i
 ## mod介绍 / About this mod
 这个mod可以在道具上显示当前你未完成任务, 未解锁的天赋, 未建造的建筑里需要的该道具的数量, 按下shift会显示个别的任务名和数量  
 (注意其中有一些任务可能是测试用的, 或者是期间限定解锁的, 或者是数据里有了但是玩家还不能解锁的都会显示出来!)  
-支持简体中文, 繁体中文, 英语, 韩语, 日语  
+支持简体中文, 繁体中文, 英语, 韩语, 日语, 俄语  
 
 This mod can display the names and required quantities of unfinished quests, locked perks, and unbuilt buildings that need the current item.  
 (Note: Some entries may be for testing, time-limited unlocks, or exist in the data but are not yet available to players—all will be shown!)  
-Supports Simplified Chinese, Traditional Chinese, English, Korean, and Japanese.  
+Supports Simplified Chinese, Traditional Chinese, English, Korean, Japanese, and Russian.  
 
 
 ## To do / 待更新事项
