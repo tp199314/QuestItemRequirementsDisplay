@@ -1,6 +1,13 @@
 # 旅游去了! 11月17号回家!!
 # I'm traveling right now!! I'll be home at 17th Nov!!
 
+
+## 给贡献者 / To Contributors
+如果你想要在创意工坊的贡献者里显示你的名字, 用你Github上的Email发邮件给我, 注明你的Steam账号id, 我会加你好友之后把你加进去的!!!  
+If u want ur name showed in Steam Workshop page, plz send me email with the email address on ur github page.  
+I'll send u friend request and add ur name on Steam Workshop page.  
+
+
 ## 使用说明 / How to use
 Steam玩家直接进入[Steam创意工坊](https://steamcommunity.com/sharedfiles/filedetails/?id=3591517959)订阅即可  
 不知道为什么每次更新都要卡一次审核, 可以进入[备份用创意工坊](https://steamcommunity.com/sharedfiles/filedetails/?id=3595582953)订阅  
