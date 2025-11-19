@@ -35,6 +35,7 @@ If anyone knows how to fix this, please let me know!
 
 
 [h2] Release Note / 更新日志 [/h2]
+v0.7 - 修复了部分bug, 增加了俄语支持, 需求统计现在会统计身上装备的数量
 v0.6 - 去除了部分未解锁的任务, 天赋, 建筑的显示
 v0.5 - 更改了默认显示需求道具总数, 并且再按下Shift键时显示具体任务名和数量的功能
 v0.4 - 现在未完成的建筑需要的道具数量也可以显示了!  
@@ -42,6 +43,7 @@ v0.3 - 现在未解锁的天赋需要的道具数量也可以显示了!
 v0.2 - 修复了道具名中有数字时不能正常显示道具数量的bug  
 v0.1 - 发布  
 
+v0.7 - Fixed some bugs and added Russian language support, now the required item count will include the quantity of items equipped on the character.
 v0.6 - Removed the display of some unimplemented quests, perks and buildings.
 v0.5 - Changed the default display to show the total required item count, and added a feature to show detailed quest names and quantities when holding the Shift key.
 v0.4 - The required item quantities for unbuilt buildings can now be displayed!  
