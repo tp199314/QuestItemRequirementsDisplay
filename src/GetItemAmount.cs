@@ -167,8 +167,6 @@ namespace QuestItemRequirementsDisplay
             while (itemStack.Count > 0)
             {
                 var item = itemStack.Pop();
-                if (item == null)
-                    continue;
 
                 if (item.TypeID == typeID)
                     amount += item.StackCount;
