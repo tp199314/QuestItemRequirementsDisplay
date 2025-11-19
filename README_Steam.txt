@@ -1,9 +1,3 @@
-[h1]说明[/h1]
-不要订阅这个, 请直接订阅右边这个! [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3591517959] 原mod页面 [/url]
-本页面是防止steam审核mod的时候导致新玩家想订阅但是找不到页面的时候用的备份用页面!
-我会先更新原本的mod再更新这边的mod, 想要最新版的玩家直接订阅原本的mod就行了!
-
-
 [h2] About this mod / mod介绍 [/h2]
 这个mod可以在道具上显示当前你未完成任务, 未解锁的天赋, 未建造的建筑里需要的该道具的数量, 按下shift会显示个别的任务名和数量
 (注意其中有一些任务可能是测试用的, 或者是期间限定解锁的, 或者是数据里有了但是玩家还不能解锁的都会显示出来!)
@@ -53,4 +47,4 @@ v0.1 - Initial release.
 
 
 [url=https://github.com/ballban/QuestItemRequirementsDisplay] Github [/url]
-v0.6 by ballban
+v0.7 by ballban
