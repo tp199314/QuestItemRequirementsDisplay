@@ -127,9 +127,7 @@ namespace QuestItemRequirementsDisplay
             }
 
             // Get total required item amount text
-            var itemAmountInCharacterInventory = GetItemAmount.InCharacterInventory(item.TypeID) + GetItemAmount.InPetInventory(item.TypeID);
-            var itemAmountInPlayerStorage = GetItemAmount.InPlayerStorage(item.TypeID);
-            var totalItemAmount = itemAmountInCharacterInventory + itemAmountInPlayerStorage;
+            var totalItemAmount = GetItemAmount.GetTotalItemAmount(item.TypeID);
 
             // Determine color based on whether the player has enough items
             var colorOfTotalitemAmount = totalItemAmount >= totalRequiredItemAmount ? "green" : "red";
