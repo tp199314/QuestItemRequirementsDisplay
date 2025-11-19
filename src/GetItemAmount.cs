@@ -43,10 +43,7 @@ namespace QuestItemRequirementsDisplay
                 if (current == null)
                     continue;
 
-                if (PlayerStorageItemsCount.TryGetValue(current.TypeID, out int existing))
-                    PlayerStorageItemsCount[current.TypeID] = existing + current.StackCount;
-                else
-                    PlayerStorageItemsCount[current.TypeID] = current.StackCount;
+                PlayerStorageItemsCount[current.TypeID] = PlayerStorageItemsCount.GetValueOrDefault(current.TypeID) + current.StackCount;
 
                 var slots = current.Slots;
                 if (slots == null)
@@ -123,15 +120,10 @@ namespace QuestItemRequirementsDisplay
         /// <returns></returns>
         public static int InPlayerStorage(int typeID)
         {
-            var amount = 0;
-            if (PlayerStorage.Inventory == null)
-            {
-                amount += PlayerStorageItemsCount.TryGetValue(typeID, out int cachedAmount) ? cachedAmount : 0;
-            }
-            else
-            {
-                amount += FromInventory(PlayerStorage.Inventory, typeID);
-            }
+            var amount = PlayerStorage.Inventory == null 
+                ? PlayerStorageItemsCount.GetValueOrDefault(typeID)
+                : FromInventory(PlayerStorage.Inventory, typeID);
+
             return amount;
         }
 
